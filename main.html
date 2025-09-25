@@ -12,7 +12,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #fffaf0;
-            color: #4a4a4a;
+            color: #ba8388;
         }
         .playfair {
             font-family: 'Playfair Display', serif;
@@ -27,31 +27,194 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #f7f3f0;
+            
+            /* ganti warna background jadi gradient */
+            background: linear-gradient(to bottom, #fffaf0, #fbeaea);
+
             z-index: 1000;
             transition: opacity 1s ease-in-out;
             text-align: center;
         }
+
+        .splash-page h1, 
+        .splash-page h2, 
+        .splash-page p {
+            animation: fadeInUp 1.5s ease forwards;
+            opacity: 0; /* biar animasi keliatan */
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .splash-page.fade-out {
             opacity: 0;
             pointer-events: none;
         }
+
+        /*bubble effect */
+        .bubbles span {
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        bottom: -100px;
+        animation: rise 6s infinite ease-in;
+        }
+
+        /* Bubble transparan putih */
+        .bubbles span:nth-child(2n) {
+        width: 20px;
+        height: 20px;
+        background: rgba(255,255,255,0.3);
+        border: 1px solid rgba(255,255,255,0.6);
+        box-shadow: inset -3px -3px 6px rgba(255,255,255,0.4),
+                    inset 3px 3px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Bubble pink pastel */
+        .bubbles span:nth-child(2n+1) {
+        width: 25px;
+        height: 25px;
+        background: rgba(186,131,136,0.25); /* #ba8388 tapi transparan */
+        border: 1px solid rgba(255,255,255,0.4);
+        box-shadow: inset -2px -2px 5px rgba(255,255,255,0.3),
+                    inset 2px 2px 5px rgba(0,0,0,0.1);
+        }
+/* variasi posisi, ukuran, dan durasi */
+        .bubbles span:nth-child(1) {
+        left: 10%;
+        width: 20px; height: 20px;
+        animation-duration: 4s;
+        }
+        .bubbles span:nth-child(2) {
+        left: 25%;
+        width: 25px; height: 25px;
+        animation-duration: 6s;
+        }
+        .bubbles span:nth-child(3) {
+        left: 40%;
+        width: 15px; height: 15px;
+        animation-duration: 3s;
+        }
+        .bubbles span:nth-child(4) {
+        left: 55%;
+        width: 30px; height: 30px;
+        animation-duration: 7s;
+        }
+        .bubbles span:nth-child(5) {
+        left: 70%;
+        width: 18px; height: 18px;
+        animation-duration: 5s;
+        }
+        .bubbles span:nth-child(6) {
+        left: 85%;
+        width: 22px; height: 22px;
+        animation-duration: 4.5s;
+        }
+        .bubbles span:nth-child(7) {
+        left: 15%;
+        width: 28px; height: 28px;
+        animation-duration: 6.5s;
+        }
+        .bubbles span:nth-child(8) {
+        left: 35%;
+        width: 12px; height: 12px;
+        animation-duration: 3.5s;
+        }
+        .bubbles span:nth-child(9) {
+        left: 65%;
+        width: 26px; height: 26px;
+        animation-duration: 5.5s;
+        }
+        .bubbles span:nth-child(10) {
+        left: 90%;
+        width: 20px; height: 20px;
+        animation-duration: 4s;
+        }
+
+        @keyframes rise {
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 0.5;
+        }
+        50% {
+            opacity: 0.8;
+        }
+        100% {
+            transform: translateY(-120vh) scale(1.2);
+            opacity: 0;
+        }
+    }
+
+/*FLOWERS*/
+
+        .flowers {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* biar nggak ganggu klik tombol */
+        z-index: 0;
+        }
+
+        .flowers span {
+        position: absolute;
+        font-size: 24px; /* ukuran bunga */
+        animation: fall 10s linear infinite;
+        opacity: 0.8;
+        }
+
+        .flowers span:nth-child(1) { left: 10%; animation-duration: 12s; }
+        .flowers span:nth-child(2) { left: 40%; animation-duration: 9s; }
+        .flowers span:nth-child(3) { left: 70%; animation-duration: 11s; }
+
+        @keyframes fall {
+        0% { transform: translateY(-10%) rotate(0deg); }
+        100% { transform: translateY(110vh) rotate(360deg); }
+        }
+
     </style>
 </head>
 
-<body class="bg-[#f7f3f0]">
+<body class="bg-[#fffaf0]">
 
     <!-- Splash Page -->
     <div id="splash-page" class="splash-page">
-        <h1 class="playfair text-2/xl md:text-2xl font-bold text-[#a67c52]">AIESEC in Untan</h1>
-        <h2 class="playfair text-5xl md:text-8xl font-bold my-4 text-[#a67c52]">12TH AKTJAYA ANNIVERSARY</h2>
-        <p class="text-sm md:text-base font-light mb-8 text-gray-600">
-            
-        </p>
-        <button id="open-button" class="mt-4 px-8 py-3 bg-[#a67c52] text-white playfair font-bold rounded-full shadow-lg hover:bg-[#8d6a45] transition-all duration-300 transform hover:scale-105">
-            Buka Undangan
-        </button>
+    <div class="bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
+
+    <div class="flowers">
+        <span>🌸</span>
+        <span>🌼</span>
+        <span>🌺</span>
+    </div>
+
+    <h1 class="playfair text-2xl md:text-2xl font-bold text-[#ba8388]">AIESEC in Untan</h1>
+    <h2 class="playfair text-4xl md:text-7xl font-bold my-4 text-[#ba8388]">
+        12TH AKTJAYA ANNIVERSARY
+    </h2>
+    <p class="text-sm md:text-lg font-light mb-8 text-gray-600 italic">
+        “With gratitude and joy, we invite you to celebrate this special moment with us.”
+    </p>
+    <button id="open-button"
+        class="mt-4 px-8 py-3 bg-[#ba8388] text-white playfair font-bold rounded-full shadow-lg hover:bg-[#fffaf0] hover:text-[#ba8388] transition-all duration-300 transform hover:scale-105">
+        Buka Undangan
+    </button>
+    </div>
+
+</div>
 
     <!-- Main Content -->
     <main id="main-content" class="min-h-screen pt-16">
