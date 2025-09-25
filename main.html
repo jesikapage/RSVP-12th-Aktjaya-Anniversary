@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan</title>
+    <title>RSVP 12th Aktjaya Anniversary</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fdfbf5;
-            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
-            background-size: 20px 20px;
+            background-color: #fffaf0;
             color: #4a4a4a;
         }
-        body.no-scroll {
-            overflow: hidden;
-            height: 100vh;
+        .playfair {
+            font-family: 'Playfair Display', serif;
         }
         .splash-page {
             position: fixed;
@@ -30,174 +27,147 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #fdfbf5;
-            z-index: 100;
-            transition: transform 1.5s cubic-bezier(0.86, 0, 0.07, 1);
-        }
-        .splash-page.hide-splash {
-            transform: translateY(-100%);
-        }
-        .flower-svg {
-            position: absolute;
-            width: 150px;
-            height: auto;
-            opacity: 0.8;
-            z-index: -1;
-        }
-        .flower-top-left {
-            top: 20px;
-            left: 20px;
-            transform: rotate(180deg);
-        }
-        .flower-bottom-right {
-            bottom: 20px;
-            right: 20px;
-        }
-        .flower-bottom-left {
-            bottom: 20px;
-            left: 20px;
-            transform: scaleX(-1);
-        }
-        .flower-top-right {
-            top: 20px;
-            right: 20px;
-            transform: scaleX(-1) rotate(180deg);
-        }
-        .invitation-content {
-            opacity: 0;
+            background-color: #f7f3f0;
+            z-index: 1000;
             transition: opacity 1s ease-in-out;
-            pointer-events: none;
+            text-align: center;
         }
-        .invitation-content.show {
-            opacity: 1;
-            pointer-events: auto;
+        .splash-page.fade-out {
+            opacity: 0;
+            pointer-events: none;
         }
     </style>
 </head>
-<body class="bg-[#fdfbf5]">
-    <!-- Splash Page with Full-Page Animation -->
+
+<body class="bg-[#f7f3f0]">
+
+    <!-- Splash Page -->
     <div id="splash-page" class="splash-page">
-        <!-- Flower SVG - Top Left -->
-        <svg class="flower-svg flower-top-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#e6c1a8" d="M50,10 A40,40 0 0,1 90,50 A40,40 0 0,1 50,90 A40,40 0 0,1 10,50 A40,40 0 0,1 50,10 Z M50,30 A20,20 0 0,0 70,50 A20,20 0 0,0 50,70 A20,20 0 0,0 30,50 A20,20 0 0,0 50,30 Z" />
-            <path fill="#b7875e" d="M50,10 Q60,0 70,10 Q80,20 90,10 T95,25 Q100,35 90,40 Q85,50 90,60 L80,70 Q70,80 60,75 L50,80 Q40,75 30,70 L20,60 Q10,50 15,40 Q20,30 30,25 L40,10 Q50,0 60,10 Z" />
-        </svg>
-        <!-- Flower SVG - Bottom Left -->
-        <svg class="flower-svg flower-bottom-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#e6c1a8" d="M50,10 A40,40 0 0,1 90,50 A40,40 0 0,1 50,90 A40,40 0 0,1 10,50 A40,40 0 0,1 50,10 Z M50,30 A20,20 0 0,0 70,50 A20,20 0 0,0 50,70 A20,20 0 0,0 30,50 A20,20 0 0,0 50,30 Z" />
-            <path fill="#b7875e" d="M50,10 Q60,0 70,10 Q80,20 90,10 T95,25 Q100,35 90,40 Q85,50 90,60 L80,70 Q70,80 60,75 L50,80 Q40,75 30,70 L20,60 Q10,50 15,40 Q20,30 30,25 L40,10 Q50,0 60,10 Z" />
-        </svg>
-        <!-- Flower SVG - Top Right -->
-        <svg class="flower-svg flower-top-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#e6c1a8" d="M50,10 A40,40 0 0,1 90,50 A40,40 0 0,1 50,90 A40,40 0 0,1 10,50 A40,40 0 0,1 50,10 Z M50,30 A20,20 0 0,0 70,50 A20,20 0 0,0 50,70 A20,20 0 0,0 30,50 A20,20 0 0,0 50,30 Z" />
-            <path fill="#b7875e" d="M50,10 Q60,0 70,10 Q80,20 90,10 T95,25 Q100,35 90,40 Q85,50 90,60 L80,70 Q70,80 60,75 L50,80 Q40,75 30,70 L20,60 Q10,50 15,40 Q20,30 30,25 L40,10 Q50,0 60,10 Z" />
-        </svg>
-        <!-- Flower SVG - Bottom Right -->
-        <svg class="flower-svg flower-bottom-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#e6c1a8" d="M50,10 A40,40 0 0,1 90,50 A40,40 0 0,1 50,90 A40,40 0 0,1 10,50 A40,40 0 0,1 50,10 Z M50,30 A20,20 0 0,0 70,50 A20,20 0 0,0 50,70 A20,20 0 0,0 30,50 A20,20 0 0,0 50,30 Z" />
-            <path fill="#b7875e" d="M50,10 Q60,0 70,10 Q80,20 90,10 T95,25 Q100,35 90,40 Q85,50 90,60 L80,70 Q70,80 60,75 L50,80 Q40,75 30,70 L20,60 Q10,50 15,40 Q20,30 30,25 L40,10 Q50,0 60,10 Z" />
-        </svg>
-        
-        <h1 class="text-3xl md:text-5xl font-bold mb-2 text-gray-800">The Wedding Of</h1>
-        <h2 class="text-5xl md:text-7xl font-extrabold text-[#b7875e] my-4 text-center">Nama Pria & Nama Wanita</h2>
-        <p class="text-lg md:text-xl font-bold mb-8 text-center text-gray-600">
-            Kamis, 25 Mei 2025
+        <h1 class="playfair text-2/xl md:text-2xl font-bold text-[#a67c52]">AIESEC in Untan</h1>
+        <h2 class="playfair text-5xl md:text-8xl font-bold my-4 text-[#a67c52]">12TH AKTJAYA ANNIVERSARY</h2>
+        <p class="text-sm md:text-base font-light mb-8 text-gray-600">
+            
         </p>
-        <button id="open-button" class="mt-8 px-6 py-3 bg-[#b7875e] hover:bg-[#a17a50] text-white font-bold rounded-full shadow-lg transition-transform transform hover:scale-105">
+        <button id="open-button" class="mt-4 px-8 py-3 bg-[#a67c52] text-white playfair font-bold rounded-full shadow-lg hover:bg-[#8d6a45] transition-all duration-300 transform hover:scale-105">
             Buka Undangan
         </button>
     </div>
 
-    <!-- Main Invitation Content -->
-    <div id="invitation-content" class="container mx-auto p-4 md:p-8 max-w-2xl invitation-content">
-        <div id="invitation-card" class="bg-white rounded-2xl shadow-xl p-6 md:p-10 text-center">
-            <h1 class="text-3xl md:text-5xl font-bold mb-4 text-gray-800">The Wedding Of</h1>
-            <h2 class="text-4xl md:text-6xl font-extrabold text-[#b7875e] my-8">Nama Pria & Nama Wanita</h2>
-            <p class="text-lg md:text-xl mb-4 text-gray-600">
-                Dengan penuh rasa syukur, kami mengundang Anda untuk hadir dan memberikan restu pada pernikahan kami.
-            </p>
-            <div class="mt-8 space-y-4 text-left">
-                <div class="bg-gray-100 p-4 rounded-xl">
-                    <h3 class="font-bold text-xl md:text-2xl text-[#b7875e]">Akad Nikah</h3>
-                    <p class="mt-2 text-md md:text-lg text-gray-600">
-                        <strong>Hari/Tanggal:</strong> Sabtu, 28 Oktober 2025<br>
-                        <strong>Waktu:</strong> 09.00 WIB<br>
-                    </p>
+    <!-- Main Content -->
+    <main id="main-content" class="min-h-screen pt-16">
+        <!-- Hero Section -->
+        <section class="h-screen flex items-center justify-center bg-center bg-cover" style="background-image: url('https://placehold.co/1000x1500/f7f3f0/a67c52?text=Wedding');">
+            <div class="text-center text-white p-4 bg-black bg-opacity-40 rounded-xl">
+                <h1 class="playfair text-5xl md:text-7xl font-bold">Dinda & Akbar</h1>
+                <p class="mt-2 text-xl">
+                    "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang." - (QS. Ar-Rum: 21)
+                </p>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="container mx-auto px-4 py-16 text-center">
+            <h2 class="playfair text-4xl md:text-5xl font-bold mb-4 text-[#a67c52]">Kami Mengundang</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-12">
+                <div>
+                    <img src="https://placehold.co/400x400/a67c52/FFFFFF?text=Dinda" alt="Foto Dinda" class="rounded-full w-48 h-48 mx-auto mb-4 object-cover border-4 border-[#a67c52]">
+                    <h3 class="playfair text-3xl font-bold text-[#a67c52]">Dinda</h3>
+                    <p class="text-gray-600 mt-2">Putri dari Bapak & Ibu Budi Santoso</p>
                 </div>
-                <div class="bg-gray-100 p-4 rounded-xl">
-                    <h3 class="font-bold text-xl md:text-2xl text-[#b7875e]">Resepsi</h3>
-                    <p class="mt-2 text-md md:text-lg text-gray-600">
-                        <strong>Hari/Tanggal:</strong> Sabtu, 28 Oktober 2025<br>
-                        <strong>Waktu:</strong> 11.00 - Selesai<br>
-                        <strong>Lokasi:</strong> Gedung Serbaguna Kota
-                    </p>
+                <div>
+                    <img src="https://placehold.co/400x400/a67c52/FFFFFF?text=Akbar" alt="Foto Akbar" class="rounded-full w-48 h-48 mx-auto mb-4 object-cover border-4 border-[#a67c52]">
+                    <h3 class="playfair text-3xl font-bold text-[#a67c52]">Akbar</h3>
+                    <p class="text-gray-600 mt-2">Putra dari Bapak & Ibu Wira Jaya</p>
                 </div>
             </div>
-            <button id="rsvp-button" class="mt-8 px-6 py-3 bg-[#b7875e] hover:bg-[#a17a50] text-white font-bold rounded-full shadow-lg transition-transform transform hover:scale-105">
-                RSVP & Lihat Peta
-            </button>
-        </div>
-        <div id="rsvp-section" class="bg-white rounded-2xl shadow-xl p-6 md:p-10 text-center mt-8 hidden transition-all duration-500 transform -translate-y-full opacity-0">
-            <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#b7875e]">Konfirmasi Kehadiran</h3>
-            <p class="text-md md:text-lg mb-4 text-gray-600">
-                Mohon konfirmasi kehadiran Anda melalui WhatsApp:
-            </p>
-            <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20konfirmasi%20kehadiran%20di%20undangan%20pernikahan%20Anda." target="_blank" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-full shadow-lg transition-transform transform hover:scale-105 inline-block">
-                Kirim WhatsApp
-            </a>
-            <h3 class="text-2xl md:text-3xl font-bold mt-8 mb-4 text-[#b7875e]">Lokasi Acara</h3>
-            <p class="text-md md:text-lg mb-4 text-gray-600">
-                <a href="https://maps.google.com/maps?q=-6.2088,106.8456" target="_blank" class="text-[#b7875e] hover:underline">
-                    Lihat di Google Maps
-                </a>
-            </p>
-        </div>
-        <p class="text-center text-gray-500 text-sm mt-8">
-            Created with ❤️ by Gemini
-        </p>
-    </div>
+        </section>
 
+        <!-- Events Section -->
+        <section id="events" class="bg-[#e7e1db] px-4 py-16">
+            <div class="container mx-auto text-center">
+                <h2 class="playfair text-4xl md:text-5xl font-bold mb-8 text-[#a67c52]">Detail Acara</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Akad Nikah -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="playfair text-3xl font-bold text-[#a67c52] mb-2">Akad Nikah</h3>
+                        <p class="text-lg text-gray-700">Sabtu, 25 Mei 2025</p>
+                        <p class="text-lg text-gray-700 mt-1">Pukul 09.00 - 10.00 WIB</p>
+                        <p class="text-md text-gray-500 mt-4">Masjid Raya Jakarta</p>
+                    </div>
+                    <!-- Resepsi -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="playfair text-3xl font-bold text-[#a67c52] mb-2">Resepsi</h3>
+                        <p class="text-lg text-gray-700">Sabtu, 25 Mei 2025</p>
+                        <p class="text-lg text-gray-700 mt-1">Pukul 11.00 - Selesai</p>
+                        <p class="text-md text-gray-500 mt-4">Gedung Serbaguna Jakarta</p>
+                    </div>
+                </div>
+                <!-- Google Maps -->
+                <div class="mt-12">
+                    <iframe class="w-full h-80 rounded-xl shadow-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3683955620955!2d106.82029671476962!3d-6.204561895507001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f140d3a95c99%3A0x677d2d3a37b1d9c9!2sGedung%20Serbaguna!5e0!3m2!1sen!2sid!4v1625078500213!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+                    <a href="https://maps.google.com/?q=-6.2045618,106.8202967" target="_blank" class="inline-block mt-4 px-6 py-2 bg-[#a67c52] text-white playfair rounded-full hover:bg-[#8d6a45] transition-colors duration-300">Lihat Peta</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="container mx-auto px-4 py-16 text-center">
+            <h2 class="playfair text-4xl md:text-5xl font-bold mb-8 text-[#a67c52]">Galeri Foto</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://placehold.co/400x600/a67c52/FFFFFF?text=Foto+1" alt="Foto Pernikahan 1" class="w-full h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/400x600/a67c52/FFFFFF?text=Foto+2" alt="Foto Pernikahan 2" class="w-full h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/400x600/a67c52/FFFFFF?text=Foto+3" alt="Foto Pernikahan 3" class="w-full h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/400x600/a67c52/FFFFFF?text=Foto+4" alt="Foto Pernikahan 4" class="w-full h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+            </div>
+        </section>
+
+        <!-- Guestbook Section -->
+        <section id="guestbook" class="bg-[#e7e1db] px-4 py-16">
+            <div class="container mx-auto max-w-2xl text-center">
+                <h2 class="playfair text-4xl md:text-5xl font-bold mb-8 text-[#a67c52]">Kirim Ucapan & Doa</h2>
+                <form id="guestbook-form" class="space-y-4">
+                    <input type="text" id="name" placeholder="Nama Anda" class="w-full p-3 rounded-lg border border-gray-300" required>
+                    <textarea id="message" placeholder="Tuliskan ucapan dan doa terbaikmu..." rows="4" class="w-full p-3 rounded-lg border border-gray-300" required></textarea>
+                    <button type="submit" class="w-full px-6 py-3 bg-[#a67c52] text-white playfair font-bold rounded-full shadow-lg hover:bg-[#8d6a45] transition-colors duration-300">
+                        Kirim Ucapan
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Closing Section -->
+        <section class="container mx-auto px-4 py-16 text-center">
+            <h2 class="playfair text-4xl md:text-5xl font-bold mb-4 text-[#a67c52]">Sampai Berjumpa</h2>
+            <p class="text-xl md:text-2xl text-gray-700">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+            </p>
+            <p class="text-gray-500 mt-8 text-sm">
+                Made with ❤️ by Gemini
+            </p>
+        </section>
+    </main>
+    
     <script>
-        const body = document.body;
         const splashPage = document.getElementById('splash-page');
         const openButton = document.getElementById('open-button');
-        const invitationContent = document.getElementById('invitation-content');
-        const rsvpButton = document.getElementById('rsvp-button');
-        const rsvpSection = document.getElementById('rsvp-section');
-        const invitationCard = document.getElementById('invitation-card');
+        const guestbookForm = document.getElementById('guestbook-form');
 
-        // Initial state: prevent scrolling and hide main content
-        body.classList.add('no-scroll');
-
+        // Show main content and hide splash page
         openButton.addEventListener('click', () => {
-            // Animate the splash page away
-            splashPage.classList.add('hide-splash');
-            
-            // Allow scrolling and show main content after animation
-            setTimeout(() => {
-                body.classList.remove('no-scroll');
-                invitationContent.classList.add('show');
-                splashPage.classList.add('hidden');
-            }, 1500); // Waktu yang sama dengan durasi transisi
+            splashPage.classList.add('fade-out');
         });
 
-        // Event listener for the RSVP button
-        rsvpButton.addEventListener('click', () => {
-            if (rsvpSection.classList.contains('hidden')) {
-                rsvpSection.classList.remove('hidden');
-                setTimeout(() => {
-                    rsvpSection.classList.remove('-translate-y-full', 'opacity-0');
-                    invitationCard.classList.remove('scale-100');
-                    invitationCard.classList.add('scale-90');
-                }, 10);
-            } else {
-                rsvpSection.classList.add('-translate-y-full', 'opacity-0');
-                invitationCard.classList.remove('scale-90');
-                invitationCard.classList.add('scale-100');
-                setTimeout(() => {
-                    rsvpSection.classList.add('hidden');
-                }, 500);
-            }
+        // Handle form submission (placeholder for now)
+        guestbookForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+
+            // TODO: In a real-world app, you would send this data to a server or database
+            alert(`Terima kasih atas ucapan Anda, ${name}!\n\nPesan: "${message}"`);
+
+            // Reset form
+            guestbookForm.reset();
         });
     </script>
 </body>
