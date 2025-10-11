@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP 12th Aktjaya Anniversary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fffaf0;
+            color: #ba8388;
+        }
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .great-vibes {
+            font-family: 'Great Vibes', cursive;
+        }
+        /* Style untuk Splash Page */
+        .splash-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, #fffaf0, #fbeaea);
+            z-index: 1000;
+            transition: opacity 1s ease-in-out;
+            text-align: center;
+        }
+        .splash-page.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        /* --- Styles for Main Sections --- */
+        .video-oval-frame {
+            width: 100%;
+            height: 100%;
+            border-radius: 50% / 70%;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+            border: 4px solid #ba8388;
+            transform: scale(0.95);
+        }
+        .video-oval-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .info-frame {
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        .info-frame img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .rundown-item h3 {
+            color: #ba8388;
+        }
+    </style>
+</head>
+
+<body class="bg-[#fffaf0]">
+
+    <div id="splash-page" class="splash-page">
+        <h1 class="playfair text-2xl md:text-2xl font-bold text-[#ba8388]">AIESEC in Untan</h1>
+        <h2 class="playfair text-4xl md:text-7xl font-bold my-4 text-[#ba8388]">
+            12TH AKTJAYA ANNIVERSARY
+        </h2>
+        <p class="text-sm md:text-lg font-light mb-8 text-gray-600 italic">
+            “With gratitude and joy, we invite you to celebrate this special moment with us.”
+        </p>
+        <button id="open-button"
+            class="mt-4 px-8 py-3 bg-[#ba8388] text-white playfair font-bold rounded-full shadow-lg hover:bg-[#fffaf0] hover:text-[#ba8388] transition-all duration-300 transform hover:scale-105">
+            Buka Undangan
+        </button>
+    </div>
+
+    <main id="main-content" class="min-h-screen pt-0">
+        
+        <section class="min-h-screen flex flex-col items-center justify-center bg-[#fbeaea] relative overflow-hidden py-16 video-decor-container">
+            <p class="text-xl md:text-2xl font-light italic mb-12 z-20 text-gray-700">
+                “Every thread holds a flower, every step holds a story.”
+            </p>
+            
+            <div class="grid grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto px-4 z-20">
+                <div class="w-full h-80 md:h-96">
+                    <div class="video-oval-frame">
+                        <video controls loop muted autoplay playsinline>
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="w-full h-80 md:h-96">
+                    <div class="video-oval-frame">
+                        <video controls loop muted autoplay playsinline>
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="w-full h-80 md:h-96">
+                    <div class="video-oval-frame">
+                        <video controls loop muted autoplay playsinline>
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="mt-8 text-xl text-[#ba8388] playfair font-bold z-20">
+                Time fades, legacy stays : Tak Kunjung Binasa
+            </p>
+        </section>
+        
+        <section id="activities" class="container mx-auto px-4 py-16 text-center">
+            <h2 class="playfair text-4xl md:text-5xl font-bold mb-12 text-[#ba8388]">#TakKoendjeongBinasa</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                
+                <div class="bg-white p-2 shadow-xl border border-gray-100 transform rotate-[-3deg] hover:rotate-0 transition-transform duration-300">
+                    <img src="Copy of IMG_0714a.jpg" alt="Pembukaan Acara" class="w-full h-auto object-cover border-b-8 border-white">
+                    <p class="text-sm font-bold text-gray-700 mt-2">12 Years of Legacy</p>
+                </div>
+                <div class="bg-white p-2 shadow-xl border border-gray-100 transform rotate-[2deg] hover:rotate-0 transition-transform duration-300">
+                    <img src="Copy of IMG_0718a.jpg" alt="Keynote Speech" class="w-full h-auto object-cover border-b-8 border-white">
+                    <p class="text-sm font-bold text-gray-700 mt-2">12 Years of Impact</p>
+                </div>
+                <div class="bg-white p-2 shadow-xl border border-gray-100 transform rotate-[-5deg] hover:rotate-0 transition-transform duration-300 hidden sm:block">
+                    <img src="Copy of IMG_0721a (1).jpg" alt="Special Performance" class="w-full h-auto object-cover border-b-8 border-white">
+                    <p class="text-sm font-bold text-gray-700 mt-2">12 Years of Growth</p>
+                </div>
+                <div class="bg-white p-2 shadow-xl border border-gray-100 transform rotate-[3deg] hover:rotate-0 transition-transform duration-300 hidden sm:block">
+                    <img src="Copy of IMG_0723a.jpg" alt="Awarding Session" class="w-full h-auto object-cover border-b-8 border-white">
+                    <p class="text-sm font-bold text-gray-700 mt-2">12th Years of Journey</p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-[#fbeaea] p-8 rounded-xl shadow-inner border-2 border-[#ba8388]">
+                <h3 class="playfair text-3xl font-bold mb-4 text-[#ba8388]">TENTANG 12TH AKTJAYA ANNIVERSARY</h3>
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    Aktjaya Anniversary merupakan salah satu perayaan tahunan AIESEC in Untan, yang mempertemukan Alumni, Anggota Saat Ini, Mitra, dan Probies dalam satu pertemuan yang bermakna. 
+                    Acara ini berfungsi sebagai wadah untuk merayakan perjalanan ke-12 AIESEC in Untan yang gemilang, sekaligus mempererat hubungan antar generasi anggota. 
+                    Lebih dari sekadar perayaan, Aktjaya Anniversary juga bertujuan untuk memperkenalkan esensi AIESEC kepada Probies dan Mitra, menginspirasi mereka untuk turut serta menciptakan dampak positif bagi organisasi dan masyarakat luas.
+                </p>
+            </div>
+        </section>
+        
+        <section id="all-info" class="bg-[#e7e1db] px-4 py-16">
+            <div class="container mx-auto text-center">
+                <h2 class="playfair text-4xl md:text-5xl font-bold mb-12 text-[#a67c52]">ALL YOU NEED TO KNOW</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="text-center">
+                        <div class="info-frame">
+                            <img src="https://placehold.co/400x200/a67c52/FFFFFF?text=Date" alt="Date and Time Photo">
+                        </div>
+                        <h3 class="playfair text-2xl font-bold text-[#a67c52] mt-2 mb-1">Tanggal dan Waktu</h3>
+                        <p class="text-xl text-gray-700 font-semibold">Minggu, 26 Oktober 2025</p>
+                        <p class="text-md text-gray-600">Pukul 15:20 - 17:25 WIB</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="info-frame">
+                            <img src="https://placehold.co/400x200/a67c52/FFFFFF?text=Venue" alt="Venue Photo">
+                        </div>
+                        <h3 class="playfair text-2xl font-bold text-[#a67c52] mt-2 mb-1">Lokasi</h3>
+                        <p class="text-xl text-gray-700 font-semibold">Hotel Grand Kartika Pontianak</p>
+                        <p class="text-md text-gray-600">Jl. Rahadi Usman, Tengah, Kec. Pontianak Kota, Kota Pontianak, Kalimantan Barat</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="info-frame">
+                            <img src="https://placehold.co/400x200/a67c52/FFFFFF?text=Dresscode" alt="Dresscode Photo">
+                        </div>
+                        <h3 class="playfair text-2xl font-bold text-[#a67c52] mt-2 mb-1">Dresscode</h3>
+                        <p class="text-xl text-gray-700 font-semibold">Batikto Eleganto</p>
+                        <p class="text-md text-gray-600">Perpaduan Batik dan Gaya Elegan</p>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="playfair text-3xl font-bold mb-4 text-[#a67c52]">Lokasi Acara</h3>
+                    <iframe class="w-full h-80 rounded-xl shadow-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3683955620955!2d106.82029671476962!3d-6.204561895507001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f140d3a95c99%3A0x677d2d3a37b1d9c9!2sGedung%20Serbaguna!5e0!3m2!1sen!2sid!4v1625078500213!5m2!1sen!2sid" allowfullscreen="" loading="lazy" title="Peta menuju Hotel Kartika Pontianak"></iframe>
+                    <a href="https://maps.google.com/?q=-6.2045618,106.8202967" target="_blank" class="inline-block mt-4 px-6 py-2 bg-[#a67c52] text-white playfair rounded-full hover:bg-[#8d6a45] transition-colors duration-300">Lihat Peta Lengkap</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="rundown" class="container mx-auto px-4 py-16 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center justify-center mb-12">
+                    <svg class="w-16 h-16 mr-4 text-[#ba8388] transform -rotate-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M5 10c0-3.9 3.1-7 7-7s7 3.1 7 7c0 7-7 12-7 12S5 17 5 10z"/>
+                        <path d="M12 12s2-2 2-4-2-4-2-4-2 2-2 4 2 4 2 4z"/>
+                    </svg>
+                    <h2 class="playfair text-5xl md:text-6xl font-bold text-[#384b3e]">
+                        MOMENTS UNFOLD
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-left max-w-3xl mx-auto">
+                    
+                    <div class="rundown-item border-b border-gray-300 pb-4">
+                        <h3 class="great-vibes text-4xl font-normal text-[#ba8388] mb-1">
+                            Opening & Welcoming
+                        </h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-1">
+                            OKTOBER, 20ᵀᴴ 2025, 15.30 – 16.12 WIB
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            Opening Video Recap, Opening by MC, Roll Dance, Check-in, Opening Speeches
+                        </p>
+                    </div>
+                    
+                    <div class="rundown-item border-b border-gray-300 pb-4">
+                        <h3 class="great-vibes text-4xl font-normal text-[#ba8388] mb-1">
+                            Updates & Partner Session
+                        </h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-1">
+                            OKTOBER, 20ᵀᴴ 2025, 16.25 – 17.20 WIB
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            Short overview of the event with summarized details
+                        </p>
+                    </div>
+
+                    <div class="rundown-item border-b border-gray-300 pb-4">
+                        <h3 class="great-vibes text-4xl font-normal text-[#ba8388] mb-1">
+                            Wishes & Symbolic Celebration
+                        </h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-1">
+                            OKTOBER, 20ᵀᴴ 2025, 16.12 – 16.25 WIB
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            Wishes & Hope, Symbolic Opening
+                        </p>
+                    </div>
+
+                    <div class="rundown-item border-b border-gray-300 pb-4">
+                        <h3 class="great-vibes text-4xl font-normal text-[#ba8388] mb-1">
+                            Closing
+                        </h3>
+                        <p class="text-sm font-semibold text-gray-700 mb-1">
+                            OKTOBER, 20ᵀᴴ 2025, 17.20 – 17.25 WIB
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            Closing by MC
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="container mx-auto px-4 py-16 text-center">
+            <h2 class="playfair text-4xl md:text-5xl font-bold mb-8 text-[#a67c52]">Galeri Foto</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://placehold.co/400x600/a67c52/FFFFFF?text=Foto+1" alt="Foto Pernikahan 1" class="w-full h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/400x600/a67c52/FFFFFF?text=Foto+2" alt="Foto Pernikahan 2" class="w-full h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/400x600/a67c52/FFFFFF?text=Foto+3" alt="Foto Pernikahan 3" class="w-full h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://placehold.co/400x600/a67c52/FFFFFF?text=Foto+4" alt="Foto Pernikahan 4" class="w-full h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+            </div>
+        </section>
+
+        <section id="rsvp" class="bg-[#fbeaea] px-4 py-16">
+            <div class="container mx-auto max-w-2xl text-center">
+                <h2 class="playfair text-4xl md:text-5xl font-bold mb-8 text-[#ba8388]">Konfirmasi Kehadiran (RSVP)</h2>
+                <p class="text-lg text-gray-700 mb-6">Mohon konfirmasi kehadiran Anda paling lambat 1 Oktober 2025.</p>
+                
+                <form id="rsvp-form" class="space-y-4">
+                    <input type="text" id="nama_lengkap" placeholder="Nama Lengkap" class="w-full p-3 rounded-lg border border-gray-300" required>
+                    
+                    <input type="text" id="nama_instansi" placeholder="Nama Instansi" class="w-full p-3 rounded-lg border border-gray-300" required>
+                    
+                    <input type="tel" id="kontak_wa" placeholder="Kontak WhatsApp (cth: 08123456789)" class="w-full p-3 rounded-lg border border-gray-300" required>
+                    
+                    <div class="text-left">
+                        <label class="block text-gray-700 mb-2 font-semibold">Apakah Anda akan hadir?</label>
+                        <select id="kehadiran" class="w-full p-3 rounded-lg border border-gray-300" required>
+                            <option value="">-- Pilih Jawaban --</option>
+                            <option value="Ya">Ya, saya akan hadir</option>
+                            <option value="Tidak">Tidak, saya mohon maaf tidak bisa hadir</option>
+                        </select>
+                    </div>
+
+                    <div class="text-left">
+                        <label class="block text-gray-700 mb-2 font-semibold" for="jumlah_orang">Jumlah Orang yang ikut (Maks. 2 dalam 1 Instansi):</label>
+                        <select id="jumlah_orang" class="w-full p-3 rounded-lg border border-gray-300" required>
+                            <option value="1">1 Orang</option>
+                            <option value="2">2 Orang</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submit-button"
+                        class="w-full px-6 py-3 bg-[#ba8388] text-white playfair font-bold rounded-full shadow-lg hover:bg-[#8d6a45] transition-colors duration-300">
+                        Kirim RSVP
+                    </button>
+                    <p id="response-message" class="mt-4 text-sm font-semibold"></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="contact-person" class="container mx-auto px-4 py-16 text-center">
+            <h2 class="playfair text-4xl md:text-5xl font-bold mb-4 text-[#ba8388]">Contact Person</h2>
+            <p class="text-xl md:text-2xl text-gray-700 mb-8">
+                Jika ada pertanyaan atau konfirmasi lebih lanjut, silakan hubungi OC Liaison Officer kami:
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-6 max-w-xl mx-auto">
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-[#ba8388]/50 w-full">
+                    <h3 class="playfair text-3xl font-bold text-[#ba8388] mb-1">Jesika</h3>
+                    <p class="text-gray-600 mb-4">OC Liaison Officer</p>
+                    <a href="https://wa.me/6289668546886" target="_blank" 
+                       class="inline-flex items-center px-6 py-3 bg-[#ba8388] text-white playfair font-bold rounded-full shadow-md hover:bg-[#a67c52] transition-colors duration-300">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.46 3.4 1.34 4.86l-1.42 5.21 5.35-1.4c1.42.78 3.01 1.18 4.64 1.18 5.45 0 9.91-4.46 9.91-9.91-.01-5.45-4.47-9.91-9.91-9.91zm.04 18.01c-1.43 0-2.81-.39-4.01-1.14l-.29-.17-3.08.82.84-3.04-.19-.3-.98-1.55c-.88-1.4-1.34-3.05-1.34-4.73 0-4.46 3.63-8.09 8.09-8.09 4.46 0 8.09 3.63 8.09 8.09s-3.63 8.09-8.09 8.09zm4.78-5.32c-.27-.13-.7-.34-1.22-.59-.53-.25-.92-.37-1.32-.37-.41 0-.78.1-.98.31-.2.21-.77.94-.94 1.13-.17.18-.34.21-.63.11-.96-.33-1.89-.85-2.66-1.57-.61-.55-1.07-1.18-1.42-1.82-.36-.65-.04-.98.24-1.25.26-.26.59-.62.88-.93.28-.32.39-.55.51-.78.13-.23.06-.43-.03-.63-.1-.2-.89-2.15-1.22-2.94-.32-.78-.65-.67-.88-.66-.21.01-.46-.02-.7-.02-.26 0-.68.08-1.01.44s-1.19 1.16-1.19 2.82c0 1.66 1.22 3.28 1.39 3.49s2.43 3.69 5.86 5.16c3.43 1.47 3.43 1.05 4.07 1.05.64 0 2.05-.79 2.33-1.48.28-.69.28-1.28.18-1.48-.1-.2-.37-.32-.79-.53z"/>
+                        </svg>
+                        Hubungi Jesika
+                    </a>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-[#ba8388]/50 w-full">
+                    <h3 class="playfair text-3xl font-bold text-[#ba8388] mb-1">Rizal</h3>
+                    <p class="text-gray-600 mb-4">OC Liaison Officer</p>
+                    <a href="https://wa.me/6281234567891" target="_blank" 
+                       class="inline-flex items-center px-6 py-3 bg-[#ba8388] text-white playfair font-bold rounded-full shadow-md hover:bg-[#a67c52] transition-colors duration-300">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.46 3.4 1.34 4.86l-1.42 5.21 5.35-1.4c1.42.78 3.01 1.18 4.64 1.18 5.45 0 9.91-4.46 9.91-9.91-.01-5.45-4.47-9.91-9.91-9.91zm.04 18.01c-1.43 0-2.81-.39-4.01-1.14l-.29-.17-3.08.82.84-3.04-.19-.3-.98-1.55c-.88-1.4-1.34-3.05-1.34-4.73 0-4.46 3.63-8.09 8.09-8.09 4.46 0 8.09 3.63 8.09 8.09s-3.63 8.09-8.09 8.09zm4.78-5.32c-.27-.13-.7-.34-1.22-.59-.53-.25-.92-.37-1.32-.37-.41 0-.78.1-.98.31-.2.21-.77.94-.94 1.13-.17.18-.34.21-.63.11-.96-.33-1.89-.85-2.66-1.57-.61-.55-1.07-1.18-1.42-1.82-.36-.65-.04-.98.24-1.25.26-.26.59-.62.88-.93.28-.32.39-.55.51-.78.13-.23.06-.43-.03-.63-.1-.2-.89-2.15-1.22-2.94-.32-.78-.65-.67-.88-.66-.21.01-.46-.02-.7-.02-.26 0-.68.08-1.01.44s-1.19 1.16-1.19 2.82c0 1.66 1.22 3.28 1.39 3.49s2.43 3.69 5.86 5.16c3.43 1.47 3.43 1.05 4.07 1.05.64 0 2.05-.79 2.33-1.48.28-.69.28-1.28.18-1.48-.1-.2-.37-.32-.79-.53z"/>
+                        </svg>
+                        Hubungi Rizal
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-sm text-gray-500 mt-6">
+                *Pastikan Anda mengganti nomor WhatsApp placeholder (62812...) dengan nomor yang sebenarnya.
+            </p>
+        </section>
+
+        <section class="container mx-auto px-4 py-16 text-center">
+            <h2 class="playfair text-4xl md:text-5xl font-bold mb-4 text-[#a67c52]">Sampai Berjumpa</h2>
+            <p class="text-xl md:text-2xl text-gray-700">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+            </p>
+        </section>
+    </main>
+    
+    <script>
+        // --- DATA GOOGLE FORM CONFIGURATION (TERHUBUNG KE FORM ANDA) ---
+        const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc8y105L8B1t7gX_57pT4r7I6p6c2-4Iq30Wd0Q8i6J0l2F0w/formResponse";
+        
+        const FIELD_IDS = {
+            NAMA_LENGKAP: "entry.1746401036", 
+            NAMA_INSTANSI: "entry.1444636655", 
+            KONTAK_WA: "entry.1742460671",     
+            KEHADIRAN: "entry.1064295328",     
+            JUMLAH_ORANG: "entry.1764614210"   
+        };
+        // ----------------------------------------
+
+        const splashPage = document.getElementById('splash-page');
+        const openButton = document.getElementById('open-button');
+        const rsvpForm = document.getElementById('rsvp-form');
+        const submitButton = document.getElementById('submit-button');
+        const responseMessage = document.getElementById('response-message');
+        const kehadiranSelect = document.getElementById('kehadiran');
+        const jumlahOrangSelect = document.getElementById('jumlah_orang');
+
+        // Memastikan body tidak bisa discroll saat splash screen aktif
+        document.body.style.overflow = 'hidden';
+
+        openButton.addEventListener('click', () => {
+            splashPage.classList.add('fade-out');
+        });
+
+        splashPage.addEventListener('transitionend', () => {
+            if (splashPage.classList.contains('fade-out')) {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Logika tampilan field jumlah orang hanya jika memilih "Ya"
+        kehadiranSelect.addEventListener('change', () => {
+            const isHadir = kehadiranSelect.value === 'Ya';
+            jumlahOrangSelect.parentElement.style.display = isHadir ? 'block' : 'none';
+            jumlahOrangSelect.required = isHadir;
+
+            if (!isHadir) {
+                jumlahOrangSelect.value = "1";
+            }
+        });
+
+        kehadiranSelect.dispatchEvent(new Event('change'));
+
+        // Logika pengiriman data RSVP
+        rsvpForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitButton.disabled = true;
+            submitButton.textContent = 'Mengirim...';
+            responseMessage.textContent = '';
+            
+            const namaLengkap = document.getElementById('nama_lengkap').value;
+            const kehadiran = document.getElementById('kehadiran').value;
+            let jumlahOrang = document.getElementById('jumlah_orang').value;
+            
+            if (kehadiran === 'Tidak') {
+                jumlahOrang = '0'; // Kirim '0' ke Google Form jika tidak hadir
+            }
+
+            const urlData = new URLSearchParams();
+            urlData.append(FIELD_IDS.NAMA_LENGKAP, namaLengkap);
+            urlData.append(FIELD_IDS.NAMA_INSTANSI, document.getElementById('nama_instansi').value);
+            urlData.append(FIELD_IDS.KONTAK_WA, document.getElementById('kontak_wa').value);
+            urlData.append(FIELD_IDS.KEHADIRAN, kehadiran);
+            urlData.append(FIELD_IDS.JUMLAH_ORANG, jumlahOrang);
+
+            try {
+                const response = await fetch(GOOGLE_FORM_ACTION_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: urlData
+                });
+
+                responseMessage.style.color = '#384b3e';
+                responseMessage.textContent = `✅ Terima kasih, ${namaLengkap}! Konfirmasi kehadiran Anda (${kehadiran}) telah berhasil dikirim.`;
+                rsvpForm.reset();
+                kehadiranSelect.dispatchEvent(new Event('change'));
+
+            } catch (error) {
+                responseMessage.style.color = '#ba8388';
+                responseMessage.textContent = '❌ Terjadi kesalahan saat mengirim RSVP. Silakan coba lagi nanti.';
+                console.error('Error submitting form:', error);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Kirim RSVP';
+            }
+        });
+    </script>
+</body>
+</html>
