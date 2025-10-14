@@ -73,26 +73,27 @@
         .rundown-item h3 {
             color: #ba8388;
         }
-
+    
+        /* --- Styles for Carousel Gallery --- */
         .gallery-carousel {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch; 
+            -webkit-overflow-scrolling: touch; /* Untuk iOS */
             scroll-behavior: smooth;
         }
         .gallery-carousel::-webkit-scrollbar {
-            display: none; 
+            display: none; /* Sembunyikan scrollbar di WebKit browsers (Chrome, Safari) */
         }
         .carousel-item {
-            flex: 0 0 100%; 
+            flex: 0 0 100%; /* Setiap item mengambil 100% lebar container */
             scroll-snap-align: center;
-            padding: 0 1rem; 
+            padding: 0 1rem; /* Jarak antar slide, sesuaikan */
         }
-   
+        /* Mengurangi padding samping agar gambar lebih terlihat, ini opsional */
         @media (min-width: 768px) {
             .carousel-item {
-                flex: 0 0 50%; 
+                flex: 0 0 50%; /* Tampilkan 2 gambar di desktop/tablet */
             }
         }
     </style>
@@ -389,7 +390,7 @@
         <section id="contact-person" class="container mx-auto px-4 py-16 text-center">
             
             <div class="mb-8">
-                <img src="Bunga OC LO.png" alt="Red Rose Illustration" class="mx-auto w-20 h-20 object-contain mb-2"> 
+                <img src="12th AA Logo.png" alt="Red Rose Illustration" class="mx-auto w-20 h-20 object-contain mb-2"> 
                 <h2 class="playfair text-4xl md:text-5xl font-bold text-[#384b3e]">Reach Us!</h2>
             </div>
             
@@ -529,6 +530,8 @@
                 submitButton.textContent = 'Kirim RSVP';
             }
         });
+
+        /* ... (JavaScript yang sudah ada) ... */
 
         // --- Logika Carousel Galeri ---
         const carousel = document.getElementById('gallery-carousel');
