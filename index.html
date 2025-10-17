@@ -447,84 +447,100 @@
 
     <!--START OF JAVA SCRIPT-->
     <script>
-        // --- DATA GOOGLE FORM CONFIGURATION (TERHUBUNG KE FORM ANDA) ---
-                const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc8y105L8B1t7gX_57pT4r7I6p6c2-4Iq30Wd0Q8i6J0l2F0w/formResponse";
-                
-                const FIELD_IDS = {
-                    NAMA_LENGKAP: "entry.1746401036", 
-                    NAMA_INSTANSI: "entry.1444636655", 
-                    KONTAK_WA: "entry.1742460671",     
-                    KEHADIRAN: "entry.1064295328",     
-                    JUMLAH_ORANG: "entry.1764614210"   
-                };
-                // ----------------------------------------
+    // --- DATA GOOGLE FORM CONFIGURATION (Dibiarkan tidak berubah) ---
+            const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc8y105L8B1t7gX_57pT4r7I6p6c2-4Iq30Wd0Q8i6J0l2F0w/formResponse";
+            
+            const FIELD_IDS = {
+                NAMA_LENGKAP: "entry.1746401036", 
+                NAMA_INSTANSI: "entry.1444636655", 
+                KONTAK_WA: "entry.1742460671",     
+                KEHADIRAN: "entry.1064295328",     
+                JUMLAH_ORANG: "entry.1764614210"   
+            };
+            // ----------------------------------------
 
-                const splashPage = document.getElementById('splash-page');
-                const openButton = document.getElementById('open-button');
-                const mainContent = document.getElementById('main-content'); // Tambahkan variabel mainContent
-                
-                // FIX: Menggunakan ID form yang benar dari HTML (real-rsvp-form)
-                const rsvpForm = document.getElementById('real-rsvp-form'); 
-                const submitButton = document.getElementById('submit-button');
-                const responseMessage = document.getElementById('response-message');
-                const kehadiranSelect = document.getElementById('kehadiran');
-                
-                // Variabel jumlahOrangSelect dihapus karena input di HTML bersifat hidden
+            const splashPage = document.getElementById('splash-page');
+            const openButton = document.getElementById('open-button');
+            const mainContent = document.getElementById('main-content');
+            
+            const rsvpForm = document.getElementById('real-rsvp-form'); 
+            const submitButton = document.getElementById('submit-button');
+            const responseMessage = document.getElementById('response-message');
+            const kehadiranSelect = document.getElementById('kehadiran');
+            
+            // FIX TAMBAHAN: Deklarasi variabel untuk input tersembunyi
+            const jumlahOrangHidden = document.getElementById('jumlah_orang_hidden'); 
 
-                // Flag untuk melacak status submit
-                let submitted = false; 
-                
-                // Memastikan body tidak bisa discroll saat splash screen aktif
-                document.body.style.overflow = 'hidden';
+            let submitted = false; 
+            
+            document.body.style.overflow = 'hidden';
 
-                openButton.addEventListener('click', () => {
-                    splashPage.classList.add('fade-out');
-                });
+            openButton.addEventListener('click', () => {
+                splashPage.classList.add('fade-out');
+            });
 
-                splashPage.addEventListener('transitionend', () => {
-                    if (splashPage.classList.contains('fade-out')) {
-                        document.body.style.overflow = 'auto';
-                        splashPage.style.display = 'none'; // Sembunyikan sepenuhnya setelah transisi
+            splashPage.addEventListener('transitionend', () => {
+                if (splashPage.classList.contains('fade-out')) {
+                    document.body.style.overflow = 'auto';
+                    splashPage.style.display = 'none';
+                }
+            });
+
+            // ------------------------------------------------------------------
+            // --- FIX TAMBAHAN: LOGIKA PERBAIKAN DATA JUMLAH ORANG ---
+            // ------------------------------------------------------------------
+            if (kehadiranSelect && jumlahOrangHidden) {
+                kehadiranSelect.addEventListener('change', () => {
+                    if (kehadiranSelect.value === 'Ya') {
+                        // Jika hadir, kirim 1
+                        jumlahOrangHidden.value = '1'; 
+                    } else if (kehadiranSelect.value === 'Tidak') {
+                        // Jika tidak hadir, kirim 0. Ini SOLUSI agar data tidak ditolak!
+                        jumlahOrangHidden.value = '0'; 
+                    } else {
+                        jumlahOrangHidden.value = '1'; 
                     }
                 });
+                // Inisialisasi nilai saat pertama kali dimuat
+                kehadiranSelect.dispatchEvent(new Event('change'));
+            }
 
-                // Hapus logika show/hide jumlah orang yang sebelumnya ada dan rusak
+            
+            // --- LOGIKA PENGIRIMAN DATA RSVP MENGGUNAKAN IFRAME ---
+            if (rsvpForm) {
                 
-                // --- LOGIKA PENGIRIMAN DATA RSVP MENGGUNAKAN IFRAME (FIX NOTIFIKASI) ---
-                if (rsvpForm) {
-                    
-                    // 1. Listener Iframe: Mendeteksi ketika Google Form berhasil menerima data
-                    document.getElementById('hidden_iframe').onload = function() {
-                        // Notifikasi hanya muncul jika form baru saja disubmit
-                        if (submitted) {
-                            const namaLengkap = document.getElementById('nama_lengkap').value;
-                            const kehadiran = document.getElementById('kehadiran').value;
-
-                            // Tampilkan notifikasi SUKSES
-                            responseMessage.style.color = '#384b3e';
-                            responseMessage.textContent = `✅ Terima kasih, ${namaLengkap}! Konfirmasi kehadiran Anda (${kehadiran}) telah berhasil dikirim.`;
-                            
-                            // Reset Form dan Button
-                            rsvpForm.reset();
-                            submitButton.disabled = false;
-                            submitButton.textContent = 'Kirim RSVP';
-                            submitted = false;
-                        }
-                    };
-                    
-                    // 2. Listener Form Submit (Tidak lagi menggunakan e.preventDefault() dan fetch)
-                    rsvpForm.addEventListener('submit', (e) => {
-                        // JANGAN PANGGIL e.preventDefault(). Biarkan form submit ke iframe.
+                // 1. Listener Iframe: Mendeteksi ketika Google Form berhasil menerima data
+                document.getElementById('hidden_iframe').onload = function() {
+                    if (submitted) {
+                        const namaLengkap = document.getElementById('nama_lengkap').value;
+                        const kehadiran = document.getElementById('kehadiran').value;
                         
-                        submitted = true;
-                        submitButton.disabled = true;
-                        submitButton.textContent = 'Mengirim...';
-                        responseMessage.textContent = '';
+                        // Tampilkan notifikasi SUKSES
+                        responseMessage.style.color = '#384b3e';
+                        responseMessage.textContent = `✅ Terima kasih, ${namaLengkap}! Konfirmasi kehadiran Anda (${kehadiran}) telah berhasil dikirim.`;
                         
-                        // PENGIRIMAN OTOMATIS: Form akan submit ke iframe karena ada target="hidden_iframe" di HTML.
-                    });
-                }
+                        // Reset Form dan Button
+                        rsvpForm.reset();
+                        // Pastikan logika jumlah orang direset juga
+                        if (kehadiranSelect) kehadiranSelect.dispatchEvent(new Event('change'));
+                        
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Kirim RSVP';
+                        submitted = false;
+                    }
+                };
+                
+                // 2. Listener Form Submit
+                rsvpForm.addEventListener('submit', (e) => {
+                    // TIDAK ADA e.preventDefault(). Form submit ke iframe.
+                    submitted = true;
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Mengirim...';
+                    responseMessage.textContent = '';
+                });
+            }
 
+            
         // --- Logika Carousel Galeri ---
         const carousel = document.getElementById('gallery-carousel');
         const prevButton = document.getElementById('prev-slide');
